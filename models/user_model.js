@@ -3,19 +3,19 @@ const mongoose = require('mongoose')
 const usersSchema = mongoose.Schema({
   name :{
     type : String,
-    required: ture
+    required: true
   },
   email :{
     type:String,
-    required: ture
+    required: true
   },
   age:{
     type : Number,
-    required: ture
+    required: true
   },
   date:{
     type: Date,
-    required: ture,
+    required: true,
     default: Date.now
     
   }
