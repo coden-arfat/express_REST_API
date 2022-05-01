@@ -1,7 +1,11 @@
 
 # get all users 
-GET http://127.0.0.1:3000/
+GET http://127.0.0.1:3000/626ea2676264e9fd516d7566
 
+###
+#get user by id 
+
+GET http://127.0.0.1:3000/626ea2676264e9fd516d7566
 
 ###
 

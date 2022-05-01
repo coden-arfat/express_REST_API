@@ -23,18 +23,16 @@ router.get('/', async (req, res)=> {
 
 // get data by id
 
-router.get('/users/:id',function(req,res){
+router.get('/:id',getUser,function(req,res){
   
-  res.send(req.params.id)
+  res.json(res.user)
 })
  
 // posting data 
 
 router.post('/post/',async(req,res)=>{
 
-  console.log(  "name :",req.body.name,
-  "email:", req.body.email,
-  "age:", req.body.age)
+
 
 
   const newUser = new usersSchema({
@@ -56,18 +54,38 @@ router.post('/post/',async(req,res)=>{
 
 
 
-// update data by id 
+// update user by id 
 
 router.patch('/users/:id',function(req,res,next){
   res.send(req.params.id)
 })
 
-// delete data by id 
+// delete user by id 
 
 router.delete('/users/:id',function(req,res,next){
   res.send(req.params,id)
 })
 
+
+
+// midelware to get user
+async function getUser(req,res,next){
+  let user 
+  try{
+    user = await usersSchema.findById(req.params.id)
+    if(user ==null){
+      return res.status(404).json({"message":"user not found"})
+    }
+    
+  }
+  catch(err){
+    return res.status(500).json({"message":"falid to find user "})
+  }
+
+  res.user=user
+  next()
+  
+}
 // export router 
 
 module.exports = router;
