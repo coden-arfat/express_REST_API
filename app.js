@@ -5,11 +5,25 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose')
 const usersRouter = require('./routes/users');
+const { connect } = require('http2');
+const { connected } = require('process');
 const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+
+// connect database using mongoose 
+
+mongoose.connect('mongodb://localhost:27017',{ useNewUrlParser: true })
+const db = mongoose.connection
+
+// error hendeler
+db.on('error',(error)=> console.error(error))
+
+// if successfully than it will print database connected in console
+db.once('open',()=> console.log('database connected'))
 
 app.use(logger('dev'));
 app.use(express.json());
