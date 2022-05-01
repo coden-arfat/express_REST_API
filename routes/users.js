@@ -56,8 +56,29 @@ router.post('/post/',async(req,res)=>{
 
 // update user by id 
 
-router.patch('/users/:id',function(req,res,next){
-  res.send(req.params.id)
+router.patch('/:id',getUser ,async(req,res)=>{
+ 
+  if(req.body.name){
+    res.user.name=req.body.name
+
+  }
+  if(req.body.email){
+    res.user.email= req.body.email
+  }
+  
+  if(req.body.age){
+    if(res.user.age!==req.body.age){
+      res.user.age =req.body.age
+    }
+  }
+  try{
+   const updatedUser= await res.user.save()
+   res.json(
+     updatedUser
+   )
+  }catch(err){
+    res.status(400).json({"message":"fail to update user"})
+  }
 })
 
 // delete user by id 

@@ -19,3 +19,16 @@ Content-Type: application/json
     "email":"arfat@examole.com",
     "age":17
 }
+
+###
+#Petch user / update user 
+
+PATCH http://127.0.0.1:3000/626ea2676264e9fd516d7566
+Content-Type: application/json
+
+{
+    "name":"fggygirt hyy",
+    "email":"ssqggderdfwgd",
+    "age":33
+   
+}
