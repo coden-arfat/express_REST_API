@@ -27,8 +27,13 @@ PATCH http://127.0.0.1:3000/626ea2676264e9fd516d7566
 Content-Type: application/json
 
 {
-    "name":"fggygirt hyy",
-    "email":"ssqggderdfwgd",
-    "age":33
+    "name":"arfat yasin",
+    "email":"arfat@example.com",
+    "age":18
    
 }
+
+#delete user by id 
+###
+DELETE http://127.0.0.1:3000/626ea83b23704755a131d808
+

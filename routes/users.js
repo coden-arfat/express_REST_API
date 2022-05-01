@@ -83,8 +83,16 @@ router.patch('/:id',getUser ,async(req,res)=>{
 
 // delete user by id 
 
-router.delete('/users/:id',function(req,res,next){
-  res.send(req.params,id)
+router.delete('/:id',getUser,async(req,res,next)=>{
+  try{
+    await res.user.remove()
+    res.status(201).json({"message":"delated user"})
+  }
+  catch(err){
+    res.status(404).json({
+      "message":"failed to delate user"
+    })
+  }
 })
 
 
