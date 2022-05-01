@@ -11,6 +11,6 @@ router.get('/',function(req,res,next){
 
   // res.send('hello i am learning express')
   res.json({'hello':'world'})
-})
+}) 
 
 module.exports = router;
