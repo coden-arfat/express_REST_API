@@ -1,0 +1,17 @@
+
+# get all users 
+GET http://127.0.0.1:3000/
+
+
+###
+
+#add user
+
+POST http://127.0.0.1:3000/post
+Content-Type: application/json
+
+{
+    "name":"yasin arfat",
+    "email":"arfat@examole.com",
+    "age":17
+}
